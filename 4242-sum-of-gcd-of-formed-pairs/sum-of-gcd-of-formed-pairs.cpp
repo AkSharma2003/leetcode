@@ -1,13 +1,5 @@
 class Solution {
 public:
-    int gcd(int a,int b){
-        while(a%b!=0){
-            int r=a%b;
-            a=b;
-            b=r;
-        }
-        return b;
-    }
     long long gcdSum(vector<int>& nums) {
         int n=nums.size();
         vector<int> v;
