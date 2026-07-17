@@ -3,13 +3,12 @@ public:
     vector<int> gcdValues(vector<int>& nums, vector<long long>& queries) {
         int mx = *max_element(nums.begin(), nums.end());
         vector<int> freq(mx + 1, 0);
-        for (int x : nums)
+
+        for (int x : nums){
             freq[x]++;
+        }
 
-        // cnt[g] = number of pairs whose gcd is exactly g
         vector<long long> cnt(mx + 1, 0);
-
-        // Count pairs divisible by g
         for (int g = 1; g <= mx; g++) {
             long long c = 0;
 
