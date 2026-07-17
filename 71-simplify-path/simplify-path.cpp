@@ -3,33 +3,26 @@ public:
     string simplifyPath(string path) {
         stringstream ss(path);
         string word;
-        stack<string> stk;
+        vector<string> ans;
 
         while(getline(ss,word,'/')){
             if(word=="" || word==".")continue;
             if(word==".."){
-                if(!stk.empty()){
-                    stk.pop();
+                if(!ans.empty()){
+                    ans.pop_back();
                 }
             }
             else{
-                stk.push(word);
+                ans.push_back(word);
             }
             
         }
-        stack<string> stk1;
-        while(!stk.empty()){
-            stk1.push(stk.top());
-            stk.pop();
+        string final="";
+        for(string &s:ans){
+            final+='/';
+            final+=s;
         }
-
-        string ans="";
-        while(!stk1.empty()){
-            ans+='/';
-            ans+=stk1.top();
-            stk1.pop();
-        }
-        if(ans.size()==0) return "/";
-        return ans;
+        if(final.size()==0) return "/";
+        return final;
     }
 };
