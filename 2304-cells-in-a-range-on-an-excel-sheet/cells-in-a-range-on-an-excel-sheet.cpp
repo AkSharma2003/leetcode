@@ -7,10 +7,11 @@ public:
         char n2=s[4];
         vector<string> ans;
         for(char c=c1;c<=c2;c++){
-            string s="";
-            s+=c;
             for(char n=n1;n<=n2;n++){
-                ans.push_back(s+n);
+                string s="";
+                s+=c;
+                s+=n;
+                ans.push_back(s);
             }
         }
         return ans;
