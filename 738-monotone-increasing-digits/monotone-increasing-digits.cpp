@@ -11,10 +11,10 @@ public:
             i++;
             int temp=n%10;
             n=n/10;
-            if(last<0){
-                last=9;
-                temp--;
-            }
+            // if(last<0){
+            //     last=9;
+            //     temp--;
+            // }
             if(last<temp){
                 ans="9"+ans;
                 temp--;
