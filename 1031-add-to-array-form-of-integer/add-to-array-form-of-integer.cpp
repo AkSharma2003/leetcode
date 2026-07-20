@@ -16,7 +16,10 @@ public:
             carry=sm/10;
             ans.push_back(sm%10);
         }
-        reverse(ans.begin(),ans.end());
+        n=ans.size();
+        for(int i=0;i<n/2;i++){
+            swap(ans[i],ans[n-1-i]);
+        }
         return ans;
     }
 };
