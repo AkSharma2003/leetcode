@@ -8,18 +8,10 @@ public:
         while(n){
             int num=n%10;
             sum+=num;
-            n/=10;
-        }
-
-        n=d;
-        while(n){
-            int num=n%10;
             mul*=num;
             n/=10;
         }
 
-        sum+=mul;
-        if(d%sum==0) return true;
-        return false;
+        return !(d%(sum+mul));
     }
 };
