@@ -15,18 +15,20 @@ class Solution {
 
     pair<int,int> caluclate(TreeNode* root){
         if(!root) return {0,0};
-        auto [left,ct1]=caluclate(root->left);
 
-        auto [right,ct2]=caluclate(root->right);
-        int ct=ct1+ct2+1;
-        int sum=root->val+left+right;
+        pair<int,int>left,right;
+        left=caluclate(root->left);
+        right=caluclate(root->right);
+        ct=left.second+right.second+1;
+
+        int sum=root->val+left.first+right.first;
         if(sum/ct==root->val) count++;
         return {sum,ct};
     }
 public:
     int averageOfSubtree(TreeNode* root) {
 
-        caluclate(root);
+        pair<int,int> ans= caluclate(root);
         return count;
     }
 };
